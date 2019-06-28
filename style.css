@@ -1,0 +1,163 @@
+/* main elements */
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 70px 100px 1fr 50px;
+    grid-template-areas: "header"
+                         "search"
+                         "results"
+                         "footer";                         
+    grid-row-gap: 20px;
+    height: 100vh;
+    padding: 0 5vh;
+
+    color: #fff;
+    background: linear-gradient(to right, rgb(83, 105, 118), rgb(41, 46, 73));
+}
+
+header {
+  grid-area: header;
+  text-align: center;
+}
+
+nav {
+  grid-area: search;
+  justify-content: right;
+  padding-left: calc(50% - 150px);
+}
+
+footer {
+  grid-area: footer;
+}
+
+#results-div {
+  grid-area: results;
+  display: flex;  
+  justify-content: left;
+  flex-wrap: wrap;
+  padding-top: 30px;
+  margin: 0 -25px;
+}
+
+a {
+  color: #aaa;
+}
+
+/* form elements */
+#searchform {
+  display: grid;
+  grid-template-columns: 150px 150px;
+  grid-template-rows: 30px 30px 30px;
+}
+
+.submit-button-div {
+  grid-column-end: 3;
+}
+
+/* search result item element */
+.result-item {
+  margin: 10px 25px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 380px;
+}
+
+.result-item:hover {
+  background-color: green;
+}
+
+.poster-img {
+  width: 126px;
+  height: 187px;
+}
+
+.poster-div {
+  float: left;
+  padding-right: 40px;
+}
+
+/* warning message styles */
+.message-img-div {
+  float: left;
+}
+
+.message-img {
+  width: 200px;
+  height: 200px;
+}
+
+/* details page */
+@media only screen and  (min-width: 76px)
+{ 
+  .movie-details {
+    display: grid;
+    grid-template-columns: 300px 410px;
+    grid-template-rows: 50px 300px 144px 200px;
+    grid-template-areas: "tittle tittle"
+                        "poster info"
+                        "poster rating"
+                        "plot   plot";
+    grid-row-gap: 20px;
+    grid-column-gap: 40px;
+    margin: 0 25px;
+  }
+
+  .poster-img-big {
+    width: 300px;
+    height: 444px;
+  }
+}
+
+/** on small screens, we wan't the poster to take the compete width */
+@media only screen and  (max-width: 767px)
+{
+  .movie-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 300px 300px 144px 200px;
+    grid-template-areas: "tittle"
+                         "poster"
+                         "info"
+                         "rating"
+                         "plot";
+    grid-row-gap: 20px;
+  }
+
+  .poster-img-big {
+    max-width: 100%;
+    max-height: 300px;
+  }
+}
+
+.details-tittle {
+  grid-area: tittle;
+}
+
+.poster-detail {
+  grid-area: poster;
+}
+
+.result-info {
+  grid-area: info;
+}
+
+.details-rating-div {
+  grid-area: rating;
+  display: flex;
+}
+
+.plot-div {
+  grid-area: plot;
+}
+
+.rating-div {
+  width: 126px;
+  margin-right: 10px;
+}
+
+.pg-img {
+  width: 126px;
+  height: 100px;
+}
+
