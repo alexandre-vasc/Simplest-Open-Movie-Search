@@ -1,3 +1,8 @@
+#
+dbconfig.json
+.directory
+
+## here below, default ignore for node projects
 # Logs
 logs
 *.log
