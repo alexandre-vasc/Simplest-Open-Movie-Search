@@ -1,6 +1,7 @@
 #
 dbconfig.json
 .directory
+conf.js
 
 ## here below, default ignore for node projects
 # Logs

@@ -5,9 +5,17 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     passwd: DataTypes.STRING,
     salt: DataTypes.STRING
-  }, {});
+  }, {
+    defaultScope: {
+      attributes: { exclude: ['passwd', 'salt'] },
+    },
+    scopes: {
+      loginScope: {
+      }
+    }
+  });
   user.associate = function(models) {
-    user.hasMany(models.favorites, {
+    user.hasMany(models.favorite, {
       foreignKey: 'user_id',
     });
   };

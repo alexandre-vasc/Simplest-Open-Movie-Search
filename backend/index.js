@@ -1,12 +1,19 @@
-const app = require('express')()
-const consign = require('consign')
+const app = require('express')();
+const consign = require('consign');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
-consign().then('./middlewares.js')
-    .then('./utils')
-    .then('./controllers')
-    .then('./routes.js')
-    .into(app)
+app.use(bodyParser.json());
+app.use(cors());
 
-app.listen(5000, () => {
-    console.log('Running Simplest Movie Search backend...')
-})
+consign()
+  .then('./conf.js')
+  .then('./utils')
+  .then('./controllers')
+  .then('./routes.js')
+  .into(app);
+
+app.listen(app.conf.port, () => {
+  // eslint-disable-next-line no-console
+  console.log(`Running SQQA backend at port ${app.conf.port}...`);
+});
